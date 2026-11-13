@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- SEO dasar: title + metadata -->
+  <title>Kopi Senja | Kedai Kopi untuk Sore yang Pelan</title>
+  <meta name="description" content="Kopi Senja adalah kedai kopi dengan menu kopi, non-kopi, dan camilan. Cocok untuk ngobrol, kerja, atau menikmati sore.">
+  <meta name="keywords" content="kedai kopi, kopi susu, menu kopi, tempat nongkrong">
+  <meta name="author" content="Kopi Senja">
+  <meta property="og:title" content="Kopi Senja">
+  <meta property="og:description" content="Sore yang pelan, ditemani kopi yang pas.">
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;800&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Semantic HTML: header berisi logo dan navigasi -->
+  <header class="header" id="header">
+    <div class="container nav">
+      <a href="#beranda" class="logo">Kopi Senja</a>
+      <nav class="menu" id="menu" aria-label="Menu utama">
+        <a href="#beranda">Beranda</a>
+        <a href="#daftar-menu">Menu</a>
+        <a href="#tentang">Tentang</a>
+        <a href="#kontak">Kontak</a>
+      </nav>
+      <!-- Badge jumlah pesanan, nilainya diubah JavaScript -->
+      <a href="#daftar-menu" class="pesanan" aria-label="Jumlah pesanan">Pesanan <span id="jumlahPesanan">0</span></a>
+      <button class="menu-btn" id="menuBtn" aria-label="Buka menu" aria-expanded="false">&#9776;</button>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO -->
+    <section class="hero" id="beranda">
+      <div class="sun" aria-hidden="true"></div>
+      <div class="container hero-grid">
+        <div class="hero-text">
+          <h1>Sore yang pelan, ditemani kopi yang pas.</h1>
+          <p class="lead">Kopi Senja menyajikan kopi pilihan, minuman non-kopi, dan camilan hangat. Datang sendiri atau ajak teman.</p>
+          <a href="#daftar-menu" class="btn">Lihat menu</a>
+          <a href="#kontak" class="btn btn-ghost">Hubungi kami</a>
+        </div>
+        <img src="asset/hero.svg" alt="Ilustrasi secangkir kopi panas dengan uap di atas piring kecil" class="hero-img">
+      </div>
+    </section>
+
+    <!-- MENU: kartu dibuat oleh script.js dari array -->
+    <section class="section" id="daftar-menu">
+      <div class="container">
+        <h2>Menu andalan</h2>
+        <p class="sub">Pilih kategori, lalu tekan Pesan untuk menambah ke daftar pesananmu.</p>
+        <div class="filter" aria-label="Filter kategori menu">
+          <button class="filter-btn aktif" data-kategori="Semua">Semua</button>
+          <button class="filter-btn" data-kategori="Kopi">Kopi</button>
+          <button class="filter-btn" data-kategori="Non-Kopi">Non-Kopi</button>
+          <button class="filter-btn" data-kategori="Camilan">Camilan</button>
+        </div>
+        <div class="grid" id="daftarMenu"></div>
+        <!-- aria-live: perubahan teks dibacakan pembaca layar -->
+        <p id="notif" aria-live="polite"></p>
+      </div>
+    </section>
+
+    <!-- TENTANG -->
+    <section class="section tentang" id="tentang">
+      <div class="container tentang-grid">
+        <article>
+          <h2>Dari biji pilihan ke cangkirmu</h2>
+          <p>Kami memilih biji kopi dari petani lokal, menyangrainya dalam jumlah kecil, lalu menyeduhnya saat kamu pesan. Tempatnya santai, colokan banyak, dan Wi-Fi kencang.</p>
+        </article>
+        <ul class="poin">
+          <li><strong>Biji lokal</strong> dipilih langsung dari petani.</li>
+          <li><strong>Seduh segar</strong> setiap kali ada pesanan.</li>
+          <li><strong>Tempat nyaman</strong> untuk ngobrol atau kerja.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- KONTAK -->
+    <section class="section" id="kontak">
+      <div class="container kontak-grid">
+        <div>
+          <h2>Mampir ke kedai</h2>
+          <p>Jl. Contoh No. 12, Kota Anda</p>
+          <h3>Jam buka</h3>
+          <ul class="jam">
+            <li><span>Senin - Jumat</span><span>10.00 - 22.00</span></li>
+            <li><span>Sabtu - Minggu</span><span>09.00 - 23.00</span></li>
+          </ul>
+        </div>
+        <!-- Validasi dasar dengan atribut HTML: required, type, minlength -->
+        <form id="form">
+          <h3>Kirim pesan</h3>
+          <label for="nama">Nama</label>
+          <input type="text" id="nama" name="nama" required minlength="3" placeholder="Nama kamu">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" required placeholder="nama@email.com">
+          <label for="pesan">Pesan</label>
+          <textarea id="pesan" name="pesan" rows="3" required placeholder="Mau reservasi atau bertanya?"></textarea>
+          <button type="submit" class="btn btn-gelap">Kirim pesan</button>
+          <p id="formMsg" aria-live="polite"></p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">&copy; <span id="year"></span> Kopi Senja. Dibuat untuk latihan HTML, CSS, dan JavaScript.</div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
